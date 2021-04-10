@@ -1,0 +1,8 @@
+const actionTypes = {
+    FETCH_MOVIES: "FETCH_MOVIES",
+    FETCH_RELATEDS: "FETCH_RELATEDS",
+    FETCH_POPULARS: "FETCH_POPULARS",
+    ADD_TO_FAVS: "ADD_TO_FAVS",
+    REMOVE_FROM_FAVS: "REMOVE_FROM_FAVS"
+}
+export default actionTypes

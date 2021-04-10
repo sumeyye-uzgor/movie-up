@@ -4,12 +4,12 @@ function SearchBar() {
     return (
         <div className={styles.searchBarContainer}>
             <select className={styles.selectInput}>
-                <option className={styles.selectOption} disabled selected>Year</option>
+                <option className={styles.selectOption} disabled defaultValue>Year</option>
                 <option className={styles.selectOption}>1996</option>
                 <option className={styles.selectOption}>1997</option>
             </select>
             <select className={styles.selectInput}>
-                <option className={styles.selectOption} disabled selected>Type</option>
+                <option className={styles.selectOption} disabled defaultValue>Type</option>
                 <option className={styles.selectOption}>1996</option>
                 <option className={styles.selectOption}>1997</option>
             </select>
