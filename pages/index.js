@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import PreviewMovies from '../components/PreviewMovies'
+import SearchBar from '../components/SearchBar'
 import styles from '../styles/Home.module.sass'
 
 export default function Home() {
@@ -22,6 +24,8 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <SearchBar />
+        <PreviewMovies title="Popular Movies" />
 
       </main>
     </div>
