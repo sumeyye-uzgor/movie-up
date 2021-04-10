@@ -1,21 +1,21 @@
 import styles from "../styles/components/SearchBar.module.sass"
-import SearchBox from './SearchBox'
 import React from 'react'
 import axios from "axios"
 import { connect } from "react-redux"
+import { withRouter, useRouter } from 'next/router'
 import { fetchMovies } from "../redux/actions"
 
 class SearchBar extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = { type: "", year: "", title: "", }
     }
-
     handleClick = (event) => {
         event.preventDefault();
-        this.setState({ type: "", year: "", title: "", })
         axios.post(`https://www.omdbapi.com/?apikey=58074476&type=${this.state.type}&page=1&s=${this.state.title}}&y=${this.state.year}`)
             .then(res => this.props.fetchMovies(res.data.Search))
+            .then(this.props.router.push(`/search-results/${this.state.title}`))
+            .then(this.setState({ type: "", year: "", title: "", }))
             .catch(err => window.alert(err))
 
     }
@@ -71,4 +71,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar)
+export default connect(null, mapDispatchToProps)(withRouter(SearchBar))
