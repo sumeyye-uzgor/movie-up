@@ -4,7 +4,7 @@ import axios from 'axios';
 function handleSubmit(e) {
     if (e.key === "Enter") {
         // console.log(e.target.value)
-        axios.post(`https://www.omdbapi.com/?s=${e.target.value}&page=10&apikey=58074476`)
+        axios.post(`https://www.omdbapi.com/?s=${e.target.value}&page=1&apikey=58074476`)
             .then(res => console.log(res.data.Search))
 
     }
