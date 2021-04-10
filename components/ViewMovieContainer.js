@@ -1,7 +1,7 @@
-import styles from '../styles/components/MovieContainer.module.sass'
+import styles from '../styles/components/PreviewMovieContainer.module.sass'
 
 
-function MovieContainer() {
+function ViewMovieContainer() {
     return (
         <div className={styles.movieContainer}>
             <img src="/movie-image.png" className={styles.image} />
@@ -25,13 +25,9 @@ function MovieContainer() {
                     <img src="heart-icon.svg" />
                     <span>Add to favorites</span>
                 </button>
-                {/* <button className={styles.delFavButton}>
-                    <img src="heart-icon.svg" />
-                    <span>Added to favorites</span>
-                </button> */}
             </div>
         </div>
     )
 }
 
-export default MovieContainer
+export default ViewMovieContainer

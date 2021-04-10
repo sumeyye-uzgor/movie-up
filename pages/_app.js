@@ -3,7 +3,7 @@ import store, { persistor } from '../redux/store';
 import { PersistGate } from 'redux-persist/integration/react'
 
 // import withRedux from 'next-redux-wrapper'
-import Navbar from '../components/Navbar'
+import MovieUpHeader from '../components/MovieUpHeader'
 import '../styles/globals.sass'
 
 function MyApp({ Component, pageProps }) {
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     <Provider {...pageProps} store={store}>
       <PersistGate persistor={persistor}{...pageProps}>
         <div {...pageProps}>
-          <Navbar />
+          <MovieUpHeader />
           <Component {...pageProps} />
         </div>
       </PersistGate>

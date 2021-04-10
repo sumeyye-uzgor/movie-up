@@ -1,20 +1,19 @@
 import styles from "../styles/components/PreviewMovies.module.sass"
-import PreviewMovieContainer from "./PreviewMovieContainer"
-function PreviewMovies({ title }) {
+import ViewMovieContainer from "./ViewMovieContainer"
+function ViewMovies({ title }) {
     return (
         <div className={styles.previewContainer}>
+            Navbar {title}
             <div className={styles.topInfo}>
                 <span className={styles.title}>{title}</span>
                 <span className={styles.viewMore}>View More &rarr;</span>
             </div>
 
             <div className={styles.movies}>
-                <PreviewMovieContainer className={styles.firstMovie} />
-                <PreviewMovieContainer className={styles.secondMovie} />
-                <PreviewMovieContainer className={styles.thirdMovie} />
+                <ViewMovieContainer />
             </div>
 
         </div>
     )
 }
-export default PreviewMovies
+export default ViewMovies
