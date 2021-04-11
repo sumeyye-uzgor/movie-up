@@ -1,15 +1,20 @@
 import styles from '../styles/components/ViewMovieContainer.module.sass'
 // import imageUrl from 'movie-image.png';
+import { connect } from "react-redux"
+import { addToFavs } from "../redux/actions"
 
 
-function ViewMovieContainer({ movie }) {
-    const imageUrl = "https://m.media-amazon.com/images/M/MV5BMTQwMzQ5Njk1MF5BMl5BanBnXkFtZTcwNjIxNzIxNw@@._V1_SX300.jpg"
+function ViewMovieContainer({ movie, addToFavs }) {
+    // const imageUrl = "https://m.media-amazon.com/images/M/MV5BMTQwMzQ5Njk1MF5BMl5BanBnXkFtZTcwNjIxNzIxNw@@._V1_SX300.jpg"
     return (
         <div className={styles.viewMovieContainer}>
             <div className={styles.imageContainer} style={{ backgroundImage: `url("${movie.Poster}")` }}>
                 {/* <img src="/movie-image.png" className={styles.image} /> */}
                 <span className={styles.label}>Biography</span>
-                <button className={styles.addFavButton}>
+                <button className={styles.addFavButton} onClick={() => {
+                    console.log(movie)
+                    addToFavs(movie)
+                }}>
                     <img src="/heart-icon.svg" />
                 </button>
             </div>
@@ -31,4 +36,7 @@ function ViewMovieContainer({ movie }) {
     )
 }
 
-export default ViewMovieContainer
+const mapDispatchToProps = dispatch => ({
+    addToFavs: movie => dispatch(addToFavs(movie))
+})
+export default connect(null, mapDispatchToProps)(ViewMovieContainer)

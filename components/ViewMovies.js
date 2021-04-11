@@ -1,8 +1,7 @@
 import styles from "../styles/components/ViewMovies.module.sass"
-import { connect } from "react-redux"
 import ViewMovieContainer from "./ViewMovieContainer"
 function ViewMovies({ movies }) {
-    console.log(movies)
+
     return (
         <div className={styles.moviesContainer}>
             {
@@ -16,7 +15,5 @@ function ViewMovies({ movies }) {
         </div>
     )
 }
-const mapStateToProps = (state) => ({
-    movies: state.movies
-})
-export default connect(mapStateToProps)(ViewMovies)
+
+export default ViewMovies

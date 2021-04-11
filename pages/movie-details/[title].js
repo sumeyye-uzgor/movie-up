@@ -27,7 +27,7 @@ function movieDetails() {
                     </div>
                     <div className={styles.buttonContainer}>
                         <button className={styles.addFavButton}>
-                            <img src="heart-icon.svg" />
+                            <img src="/heart-icon.svg" width="30px" height="30px" />
                             <span>Add to favorites</span>
                         </button>
                     </div>

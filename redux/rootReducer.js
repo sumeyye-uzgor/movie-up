@@ -29,12 +29,12 @@ const rootReducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_TO_FAVS:
             return {
                 ...state,
-                favorites: [...favorites, action.payload]
+                favorites: [...state.favorites, action.payload]
             }
         case actionTypes.REMOVE_FROM_FAVS:
             return {
                 ...state,
-                favorites: favorites.filter(item => item.id !== action.payload.id)
+                favorites: state.favorites.filter(item => item.id !== action.payload.id)
             }
         default:
             return state

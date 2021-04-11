@@ -22,7 +22,7 @@ function PreviewMovieContainer() {
                     The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.
                 </div>
                 <button className={styles.addFavButton}>
-                    <img src="heart-icon.svg" />
+                    <img src="/heart-icon.svg" />
                     <span>Add to favorites</span>
                 </button>
             </div>
