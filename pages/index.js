@@ -16,7 +16,9 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <SearchBar />
+        <div className={styles.searchBarContainer}>
+          <SearchBar />
+        </div>
         <PreviewMovies title="Popular Movies" />
 
       </main>
