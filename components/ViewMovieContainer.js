@@ -2,11 +2,11 @@ import styles from '../styles/components/ViewMovieContainer.module.sass'
 // import imageUrl from 'movie-image.png';
 
 
-function ViewMovieContainer() {
+function ViewMovieContainer({ movie }) {
     const imageUrl = "https://m.media-amazon.com/images/M/MV5BMTQwMzQ5Njk1MF5BMl5BanBnXkFtZTcwNjIxNzIxNw@@._V1_SX300.jpg"
     return (
         <div className={styles.viewMovieContainer}>
-            <div className={styles.imageContainer} style={{ backgroundImage: `url("${imageUrl}")` }}>
+            <div className={styles.imageContainer} style={{ backgroundImage: `url("${movie.Poster}")` }}>
                 {/* <img src="/movie-image.png" className={styles.image} /> */}
                 <span className={styles.label}>Biography</span>
                 <button className={styles.addFavButton}>
@@ -20,8 +20,8 @@ function ViewMovieContainer() {
                         <span className={styles.point}>8.8</span>
                     </span>
                 </div>
-                <div className={styles.year}>2019</div>
-                <div className={styles.title}>The GodFather</div>
+                <div className={styles.year}>{movie.Year}</div>
+                <div className={styles.title}>{movie.Title}</div>
                 <div className={styles.description}>
                     The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.
                 </div>

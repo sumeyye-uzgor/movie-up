@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar"
 import ViewMovies from "../components/ViewMovies"
 
 function favorites({ favoriteMovies }) {
-    console.log(favoriteMovies)
     return (
         <main>
             <Navbar name="Favorites" />
