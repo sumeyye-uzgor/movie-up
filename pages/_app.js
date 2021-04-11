@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     <Provider {...pageProps} store={store}>
       <PersistGate persistor={persistor}{...pageProps}>
         <div {...pageProps}>
+
           <MovieUpHeader />
           <Component {...pageProps} />
         </div>
