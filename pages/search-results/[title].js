@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import axios from "axios"
 
 import styles from "../../styles/SearchResults.module.sass"
 import ViewMovies from '../../components/ViewMovies'
@@ -27,7 +28,11 @@ function searchResults({ movies }) {
         </main >
     )
 }
-const mapStateToProps = (state) => ({
-    movies: state.movies
-})
-export default connect(mapStateToProps)(searchResults)
+
+searchResults.getInitialProps = async (ctx) => {
+    const res = await axios.post(`https://www.omdbapi.com/?apikey=58074476&type=movie&page=1&s=war&y=2020`)
+    const movies = await res.data.Search
+    return { movies }
+}
+
+export default connect()(searchResults)
