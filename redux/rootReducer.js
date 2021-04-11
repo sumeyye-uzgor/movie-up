@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     favorites: [],
     populars: [],
     relateds: [],
+    detailedMovie: {},
 }
 
 const rootReducer = (state = INITIAL_STATE, action) => {

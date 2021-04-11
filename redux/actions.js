@@ -5,6 +5,12 @@ export const fetchMovies = (movies) => (
         payload: movies
     }
 )
+export const fetchDetailedMovie = (movie) => (
+    {
+        type: actionTypes.FETCH_DETAILED_MOVIE,
+        payload: movie
+    }
+)
 export const fetchRelateds = (relateds) => (
     {
         type: actionTypes.FETCH_RELATEDS,
