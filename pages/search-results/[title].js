@@ -8,7 +8,6 @@ import SearchBar from "../../components/SearchBar"
 function searchResults() {
     const router = useRouter()
     const { title } = router.query
-
     return (
         <main>
             <Navbar name="Search Results" />
