@@ -1,24 +1,37 @@
 import styles from '../styles/components/ViewMovieContainer.module.sass'
 // import imageUrl from 'movie-image.png';
 import { connect } from "react-redux"
-import { addToFavs } from "../redux/actions"
+import { addToFavs, removeFromFavs } from "../redux/actions"
+import { useRouter } from 'next/dist/client/router'
 
 
-function ViewMovieContainer({ movie, addToFavs }) {
+function ViewMovieContainer({ movie, addToFavs, favoriteMovies, delFromFavs }) {
+    const router = useRouter()
+    // console.log(movie)
     // const imageUrl = "https://m.media-amazon.com/images/M/MV5BMTQwMzQ5Njk1MF5BMl5BanBnXkFtZTcwNjIxNzIxNw@@._V1_SX300.jpg"
     return (
         <div className={styles.viewMovieContainer}>
-            <div className={styles.imageContainer} style={{ backgroundImage: `url("${movie.Poster}")` }}>
-                {/* <img src="/movie-image.png" className={styles.image} /> */}
-                <span className={styles.label}>Biography</span>
-                <button className={styles.addFavButton} onClick={() => {
-                    console.log(movie)
-                    addToFavs(movie)
-                }}>
-                    <img src="/heart-icon.svg" />
-                </button>
+            <div className={styles.imageContainer}>
+                <img src={movie.Poster} className={styles.image} onClick={() => router.push(`/movie-details/${movie.imdbID}`)} />
+                <div className={styles.buttonsContainer}>
+                    <span className={styles.label} onClick={() => router.push(`/movie-details/${movie.imdbID}`)}>Biography</span>
+                    {
+                        favoriteMovies.find(item => item.imdbID === movie.imdbID) ?
+                            (<button className={styles.delFavButton} onClick={() => {
+                                delFromFavs(movie)
+                            }}>
+                                <img src="/heart-icon.svg" />
+                            </button>)
+                            :
+                            (<button className={styles.addFavButton} onClick={() => {
+                                addToFavs(movie)
+                            }}>
+                                <img src="/heart-icon.svg" />
+                            </button>)
+                    }
+                </div>
             </div>
-            <div className={styles.details}>
+            <div className={styles.details} onClick={() => router.push(`/movie-details/${movie.imdbID}`)}>
                 <div className={styles.imdbDetails}>
                     <span className={styles.image}>
                         <img src="/IMDB-icon.png" />
@@ -32,11 +45,14 @@ function ViewMovieContainer({ movie, addToFavs }) {
                 </div>
 
             </div>
-        </div >
+        </ div >
     )
 }
-
-const mapDispatchToProps = dispatch => ({
-    addToFavs: movie => dispatch(addToFavs(movie))
+const mapStateToProps = (state) => ({
+    favoriteMovies: state.favorites
 })
-export default connect(null, mapDispatchToProps)(ViewMovieContainer)
+const mapDispatchToProps = dispatch => ({
+    addToFavs: movie => dispatch(addToFavs(movie)),
+    delFromFavs: movie => dispatch(removeFromFavs(movie))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ViewMovieContainer)

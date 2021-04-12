@@ -1,8 +1,5 @@
 // import '../styles/globals.sass'
 import styles from '../styles/components/SearchBox.module.sass'
-import axios from 'axios';
-import { connect } from "react-redux"
-import { fetchMovies } from '../redux/actions';
 import { useRouter } from 'next/router'
 
 function SearchBox(props) {
@@ -22,11 +19,6 @@ function SearchBox(props) {
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMovies: movies => dispatch(fetchMovies(movies))
 
-    }
-}
 
-export default connect(null, mapDispatchToProps)(SearchBox)
+export default SearchBox

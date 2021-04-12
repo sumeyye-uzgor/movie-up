@@ -32,7 +32,6 @@ function searchResults({ movies }) {
 
 searchResults.getInitialProps = async (ctx) => {
     const { query } = ctx
-    console.log(getRouteUrl(query))
     const res = await axios.post(getRouteUrl(query))
     const movies = await res.data.Search
     return { movies }

@@ -1,13 +1,27 @@
 .viewMovieContainer
     width: 270px
-    height: 600px
-    display: block
+    height: 700px
     margin-left: 10px
     margin-right: 10px
-    // border: 1px solid #f3f3f3
+    cursor: pointer
+    overflow: hidden
 
 .imageContainer
     height: 350px
+    width: 270px
+    display: block
+    padding: 5px 10px
+    padding-left: 0
+
+.image
+    border-radius: 8px
+    width: 270px
+    height: 350px
+    padding: 0
+
+.buttonsContainer
+    height: 60px
+    margin-top: -70px
     width: 270px
     border-radius: 8px
     background-position: center
@@ -28,10 +42,15 @@
     margin-left: 10px
 
 .imdbDetails
-    margin-top: 10px
+    margin-top: 20px
 
 .title
     font-size: 25px
+    margin-top: 10px
+.year
+    margin-top: 10px
+.details
+    display: block
 
 .description
     margin-top: 10px
@@ -44,3 +63,15 @@
     height: 50px
     background-color: #f5c518
     border-radius: 50%
+    &:hover
+        cursor: pointer
+        opacity: 0.9
+
+.delFavButton
+    width: 50px
+    height: 50px
+    background-color: #fffdf5
+    border-radius: 50%
+    &:hover
+        cursor: pointer
+        opacity: 0.9

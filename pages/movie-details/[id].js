@@ -3,12 +3,11 @@ import axios from "axios"
 import styles from "../../styles/MovieDetails.module.sass"
 import PreviewMovies from '../../components/PreviewMovies'
 import Navbar from "../../components/Navbar"
+import { addToFavs, removeFromFavs } from "../../redux/actions"
+import { connect } from "react-redux"
 
-function movieDetails({ movie }) {
-    // const router = useRouter()
-    // const { title } = router.query
+function movieDetails({ movie, addToFavs, delFromFavs, favoriteMovies }) {
     const genres = movie.Genre.split(",")
-    console.log(movie)
     return (
         <main>
             <Navbar name={movie.Title} />
@@ -28,10 +27,23 @@ function movieDetails({ movie }) {
                         </span>
                     </div>
                     <div className={styles.buttonContainer}>
-                        <button className={styles.addFavButton}>
-                            <img src="/heart-icon.svg" width="30px" height="30px" />
-                            <span>Add to favorites</span>
-                        </button>
+                        {
+                            favoriteMovies.find(item => item.imdbID === movie.imdbID) ?
+                                (<button className={styles.delFavButton} onClick={() => {
+                                    delFromFavs(movie)
+                                }}>
+                                    <img src="/heart-icon.svg" width="30px" height="30px" />
+                                    <span>Remove from favorites</span>
+
+                                </button>)
+                                :
+                                (<button className={styles.addFavButton} onClick={() => { addToFavs(movie) }}>
+                                    <img src="/heart-icon.svg" width="30px" height="30px" />
+                                    <span>Add to favorites</span>
+
+                                </button>)
+                        }
+
                     </div>
                     <div className={styles.year}>{movie.Year}</div>
                     <div className={styles.detailsTitle}>{movie.Title}</div>
@@ -42,7 +54,7 @@ function movieDetails({ movie }) {
             </div>
             <div className={styles.labelContainer}>
                 {
-                    genres.map((genre, idx) => <span className={styles.label}>{genre}</span>)
+                    genres.map((genre, idx) => <span className={styles.label} key={idx}>{genre}</span>)
                 }
 
             </div>
@@ -53,10 +65,21 @@ function movieDetails({ movie }) {
 }
 
 movieDetails.getInitialProps = async (ctx) => {
-    const res = await axios.post(`https://www.omdbapi.com/?apikey=58074476&i=tt6508228`)
+    const { query } = ctx
+    console.log(query.id)
+    const res = await axios.post(`https://www.omdbapi.com/?apikey=58074476&i=${query.id}`)
     const movie = await res.data
+    console.log(movie)
     return { movie }
 }
+const mapDispatchToProps = (dispatch) => ({
+    addToFavs: movie => dispatch(addToFavs(movie)),
+    delFromFavs: movie => dispatch(removeFromFavs(movie)),
 
+})
 
-export default movieDetails
+const mapStateToProps = state => ({
+    favoriteMovies: state.favorites
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(movieDetails)

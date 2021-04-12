@@ -1,9 +1,6 @@
 import styles from "../styles/components/SearchBar.module.sass"
 import React from 'react'
-import axios from "axios"
-import { connect } from "react-redux"
-import { withRouter, useRouter } from 'next/router'
-import { fetchMovies } from "../redux/actions"
+import { withRouter } from 'next/router'
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -69,11 +66,6 @@ class SearchBar extends React.Component {
         )
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMovies: movies => dispatch(fetchMovies(movies))
 
-    }
-}
 
-export default connect(null, mapDispatchToProps)(withRouter(SearchBar))
+export default withRouter(SearchBar)
