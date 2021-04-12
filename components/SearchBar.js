@@ -12,12 +12,14 @@ class SearchBar extends React.Component {
     }
     handleClick = (event) => {
         event.preventDefault();
-        axios.post(`https://www.omdbapi.com/?apikey=58074476&type=${this.state.type}&page=1&s=${this.state.title}}&y=${this.state.year}`)
-            .then(res => this.props.fetchMovies(res.data.Search))
-            .then(this.props.router.push(`/search-results/${this.state.title}`))
-            .then(this.setState({ type: "", year: "", title: "", }))
-            .catch(err => window.alert(err))
-
+        const { title, year, type } = this.state
+        if (title.length > 0 && year.length > 0 && type.length > 0) {
+            this.props.router.push(`/search-results/${title}/${year}/${type}`)
+            this.setState({ type: "", year: "", title: "", })
+        }
+        else {
+            window.alert("type, year, and title are required to search!")
+        }
     }
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -30,12 +32,14 @@ class SearchBar extends React.Component {
                     placeholder="Year"
                     className={styles.textInput}
                     name="year"
+                    required
                     value={this.state.year}
                     onChange={(event) => this.handleChange(event)}
                 />
                 <select
                     className={styles.selectInput}
                     name="type"
+                    required
                     value={this.state.type}
                     onChange={(event) => this.handleChange(event)}>
                     <option className={styles.selectOption} value="">Type</option>
@@ -48,6 +52,7 @@ class SearchBar extends React.Component {
                         type="text"
                         placeholder="Enter the movie name here"
                         name="title"
+                        required
                         value={this.state.title}
                         className={styles.searchInput}
                         onChange={(event) => this.handleChange(event)}
