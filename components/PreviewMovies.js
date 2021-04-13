@@ -9,9 +9,20 @@ function PreviewMovies({ title }) {
             </div>
 
             <div className={styles.movies}>
-                <PreviewMovieContainer className={styles.firstMovie} />
+                {/* <div className={styles.firstArrowContainer}>
+                    <PreviewMovieContainer />
+                    <div className={styles.leftArrow}>&larr;</div>
+                </div> */}
+                <div className={styles.backMovies}>
+                    <PreviewMovieContainer />
+                </div>
+                <div className={styles.arrow}>&larr;</div>
+
                 <PreviewMovieContainer className={styles.secondMovie} />
-                <PreviewMovieContainer className={styles.thirdMovie} />
+                <div className={styles.arrow}>&rarr;</div>
+                <div className={styles.backMovies}>
+                    <PreviewMovieContainer />
+                </div>
             </div>
 
         </div>

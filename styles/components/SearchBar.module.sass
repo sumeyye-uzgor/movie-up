@@ -1,6 +1,7 @@
 $base-gray: #f3f3f3
 $base-yellow: #f5c518
 $font-gray: #636363
+@import '../MediaQueries.module'
 
 .searchBarContainer
     position: relative
@@ -8,7 +9,7 @@ $font-gray: #636363
     margin-left: 20vw
     padding-top: 1vh
     width: 60vw
-    height: 10vh
+    height: 80px
     display: flex
     justify-content: space-around
     align-items: center
@@ -16,6 +17,16 @@ $font-gray: #636363
     border: 1px solid white
     border-radius: 10px
     box-shadow: 0px 16px 28px rgba(141, 40, 173, 0.15)
+    // @include responsive($breakpoint: tab-land)
+    //     width: 600px
+    //     margin-left: 15vw
+    // @include responsive($breakpoint: tab-port)
+    //     width: 600px
+    //     margin-left: auto
+
+    // @include responsive($breakpoint: phone)
+    //     height: 3vh
+    //     width: 100vw
 
 .textInput
     background-color: $base-gray
@@ -36,8 +47,8 @@ $font-gray: #636363
     color: $font-gray
 
 .btn
-    width: 10vw
-    padding: 10px 20px
+    width: 100px
+    padding: 10px 10px
     background-color: $base-yellow
     color: white
     border-radius: 10px
@@ -48,7 +59,7 @@ $font-gray: #636363
     border-radius: 5px
     background-color: $base-gray
     width: 40%
-    height: 6vh
+    height: 40px
     display: flex
     justify-content: space-around
 

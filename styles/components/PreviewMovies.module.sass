@@ -1,6 +1,6 @@
 .previewContainer
-    padding-top: 14vh
-    padding-bottom: 14vh
+    padding-top: 140px
+    padding-bottom: 60px
     width: 100vw
     height: auto
     display: flex
@@ -23,32 +23,44 @@
     font-size: 25px
 
 .movies
-    padding-top: 7vh
+    padding-top: 90px
     position: relative
     width: 160vw
     height: auto
     display: flex
     justify-content: space-between
+    align-items: center
     overflow: hidden
-
-// .firstMovie
-//     position: absolute
-//     opacity: 0.1
-//     // background-color: white
 
 .thirdMovie, .firstMovie
     position: absolute
     background: linear-gradient(90deg, #FFFFFF -16.67%, #FFFFFF -16.65%, rgba(252, 248, 253, 0) 180.54%)
-    transform: matrix(-1, 0, 0, 1, 0, 0)
+    // transform: matrix(-1, 0, 0, 1, 0, 0)
 
-// .secondMovie
-//     position: relative
+.firstMovieContainer
+    position: absolute
+    opacity: 0.5
 
-.leftArrow
+.arrow
     position: relative
     cursor: pointer
-    // display: hidden
     background-color: #f5c518
     color: white
-    // &:hover
-        // display: flex
+    border-radius: 50%
+    width: 50px
+    height: 50px
+    display: flex
+    opacity: 0.5
+    justify-content: center
+    align-items: center
+    &:hover
+        opacity: 1
+
+.backMovies
+    display: flex
+    justify-content: center
+    align-items: center
+    background: linear-gradient(90deg, #FFFFFF -16.67%, #FFFFFF -16.65%, rgba(252, 248, 253, 0) 180.54%)
+    // transform: matrix(-1, 0, 0, 1, 0, 0)
+    position: relative
+    opacity: 0.5
