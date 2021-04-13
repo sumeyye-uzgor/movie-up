@@ -5,6 +5,7 @@ import PreviewMovies from '../../components/PreviewMovies'
 import Navbar from "../../components/Navbar"
 import { addToFavs, removeFromFavs } from "../../redux/actions"
 import { connect } from "react-redux"
+import HeartIcon from "../../public/svg_images/heart-solid.svg"
 
 function movieDetails({ movie, addToFavs, delFromFavs, favoriteMovies }) {
     const genres = movie.Genre.split(",")
@@ -32,13 +33,13 @@ function movieDetails({ movie, addToFavs, delFromFavs, favoriteMovies }) {
                                 (<button className={styles.delFavButton} onClick={() => {
                                     delFromFavs(movie)
                                 }}>
-                                    <img src="/heart-icon.svg" width="30px" height="30px" />
+                                    <HeartIcon color="#f5c518" width="20px" height="20px" />
                                     <span>Remove from favorites</span>
 
                                 </button>)
                                 :
                                 (<button className={styles.addFavButton} onClick={() => { addToFavs(movie) }}>
-                                    <img src="/heart-icon.svg" width="30px" height="30px" />
+                                    <HeartIcon color="white" width="20px" height="20px" />
                                     <span>Add to favorites</span>
 
                                 </button>)

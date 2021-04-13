@@ -3,6 +3,7 @@ import styles from '../styles/components/ViewMovieContainer.module.sass'
 import { connect } from "react-redux"
 import { addToFavs, removeFromFavs } from "../redux/actions"
 import { useRouter } from 'next/dist/client/router'
+import HeartIcon from "../public/svg_images/heart-solid.svg"
 
 
 function ViewMovieContainer({ movie, addToFavs, favoriteMovies, delFromFavs }) {
@@ -20,13 +21,14 @@ function ViewMovieContainer({ movie, addToFavs, favoriteMovies, delFromFavs }) {
                             (<button className={styles.delFavButton} onClick={() => {
                                 delFromFavs(movie)
                             }}>
-                                <img src="/heart-icon.svg" />
+                                {/* <img src="/heart-icon.svg" /> */}
+                                <HeartIcon color="#f5c518" width="20px" height="20px" />
                             </button>)
                             :
                             (<button className={styles.addFavButton} onClick={() => {
                                 addToFavs(movie)
                             }}>
-                                <img src="/heart-icon.svg" />
+                                <HeartIcon color="#fffdf5" width="20px" height="20px" />
                             </button>)
                     }
                 </div>

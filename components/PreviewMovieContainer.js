@@ -1,4 +1,5 @@
 import styles from '../styles/components/PreviewMovieContainer.module.sass'
+import HeartIcon from "../public/svg_images/heart-solid.svg"
 
 
 function PreviewMovieContainer() {
@@ -22,7 +23,7 @@ function PreviewMovieContainer() {
                     The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.
                 </div>
                 <button className={styles.addFavButton}>
-                    <img src="/heart-icon.svg" />
+                    <HeartIcon color="white" width="20px" height="20px" />
                     <span>Add to favorites</span>
                 </button>
             </div>
